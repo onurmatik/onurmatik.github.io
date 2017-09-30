@@ -1,6 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head lang="en">
+
+    <!-- Global Site Tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-65977822-4"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments)};
+      gtag('js', new Date());
+
+      gtag('config', 'UA-65977822-4');
+    </script>
+
     <meta charset="UTF-8">
     <title>Twitter Trending Topics Archive</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -31,7 +42,7 @@
 
     <div class="row">
 
-        <div class="panel panel-default
+        <div class="panel panel-info
             col-md-4 col-md-offset-4
             col-sm-8 col-sm-offset-2
             col-xs-10 col-xs-offset-1
@@ -51,7 +62,7 @@
                     <div class="row">
                         <div class="form-group">
                             <label for="country" class="sr-only">Country</label>
-                            <select name="country" class="form-control" id="country">
+                            <select name="country" class="form-control text-info" id="country">
                                 <option value="" selected="selected">Worldwide</option>
                                 <option value="AE">United Arab Emirates</option>
                                 <option value="AR">Argentina</option>
@@ -121,7 +132,7 @@
 
                     <div class="row">
                         <div class="form-group">
-                            <button type="submit" class="form-control">Download</button>
+                            <button type="submit" class="form-control btn btn-info">Download</button>
                         </div>
                     </div>
 
@@ -139,13 +150,16 @@
 
 <div class="text-center">
 
-    <p>
-        65 countries; 450 locations; 50 topics / hour; aggregated daily in CSV format
+    <p class="text-muted">
+        65 countries; 450 locations; 50 topics / hour; aggregated daily in CSV format; since Sep. 3<sup>rd</sup>, 2017
     </p>
 
-    <a href="https://market.mashape.com/onurmatik/twitter-trending-topics-archive">
-        You can also access the archive via the API
-    </a>
+    <p>
+        <a href="https://market.mashape.com/onurmatik/twitter-trending-topics-archive">
+            You can also access the archive via the API
+        </a>
+    </p>
+
 </div>
 
 <script>
