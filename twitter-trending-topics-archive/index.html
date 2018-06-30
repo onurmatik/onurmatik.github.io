@@ -260,6 +260,7 @@ $(function(){
 
     if (getCookie('sid')) {
         $('#download-form').removeClass('d-none');
+        var sid = getCookie('sid');
     } else {
         $('#purchase-form').removeClass('d-none');
     }
@@ -287,7 +288,7 @@ $(function(){
         setCookie('date', $(this).find('input[name=date]').val());
         setCookie('country', $(this).find('select option:checked').val());
         var payload = {
-            sid: getCookie('sid'),
+            sid: sid,
             date: $(this).find('input[name=date]').val(),
             country: $(this).find('select option:checked').val()
         };
