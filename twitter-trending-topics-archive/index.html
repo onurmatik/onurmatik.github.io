@@ -284,7 +284,6 @@ $(function(){
     }
 
     $form.submit(function(e) {
-        e.preventDefault();
         setCookie('date', $(this).find('input[name=date]').val());
         setCookie('country', $(this).find('select option:checked').val());
         var payload = {
@@ -300,7 +299,7 @@ $(function(){
             tempLink.click();
             document.body.removeChild(tempLink);
         }, 'json');
-        return false;
+        e.preventDefault();
     });
 
 });
