@@ -133,7 +133,7 @@
                     Select date and location
                 </div>
 
-                <form action="https://3i91mcgnld.execute-api.us-east-1.amazonaws.com/api/download" autocomplete="off">
+                <form id="download-form" action="https://3i91mcgnld.execute-api.us-east-1.amazonaws.com/api/download" autocomplete="off">
 
                     <div class="form-group">
                         <label for="date" class="sr-only">Date</label>
@@ -275,7 +275,7 @@ $(function(){
         autoPick: true
     });
 
-    var $form = $('form');
+    var $form = $('#download-form');
     var api_endpoint = $form.attr('action');
 
     if (getURLParameter('sid')) {
