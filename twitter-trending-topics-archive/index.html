@@ -284,11 +284,11 @@ $(function(){
     }
 
     $('#download-button').click(function() {
-        setCookie('date', $(this).find('input[name=date]').val());
-        setCookie('country', $(this).find('select option:checked').val());
+        setCookie('date', $form.find('input[name=date]').val());
+        setCookie('country', $form.find('select option:checked').val());
         var payload = {
-            date: $(this).find('input[name=date]').val(),
-            country: $(this).find('select option:checked').val(),
+            date: $form.find('input[name=date]').val(),
+            country: $form.find('select option:checked').val(),
             sid: getCookie('sid')
         };
         $.get(api_endpoint, $.param(payload), function(data) {
