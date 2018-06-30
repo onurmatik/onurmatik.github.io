@@ -278,22 +278,7 @@ $(function(){
     var $form = $('form');
     var api_endpoint = $form.attr('action');
 
-    if (getURLParameter('oauth_verifier')) {
-        var payload = {
-            oauth_token: getURLParameter('oauth_token'),
-            oauth_token_secret: getCookie('oauth_token_secret'),
-            verifier: getURLParameter('oauth_verifier'),
-            date: getCookie('date'),
-            country: getCookie('country')
-        };
-        $.get(api_endpoint, $.param(payload), function(data) {
-            var tempLink = document.createElement("a");
-            tempLink.setAttribute("href", data.url);
-            document.body.appendChild(tempLink);
-            tempLink.click();
-            document.body.removeChild(tempLink);
-        }, 'json');
-    } else if (getURLParameter('sid')) {
+    if (getURLParameter('sid')) {
         setCookie('sid', getURLParameter('sid'));
         window.location.href = 'https://onurmatik.github.io/twitter-trending-topics-archive/'
     }
@@ -301,7 +286,12 @@ $(function(){
     $form.submit(function() {
         setCookie('date', $(this).find('input[name=date]').val());
         setCookie('country', $(this).find('select option:checked').val());
-        $.get(api_endpoint, function(data) {
+        var payload = {
+            date: $(this).find('input[name=date]').val(),
+            country: getCookie($(this).find('select option:checked').val()),
+            sid: getCookie('sid')
+        };
+        $.get(api_endpoint, $.param(payload), function(data) {
             var tempLink = document.createElement("a");
             tempLink.setAttribute("href", data.url);
             document.body.appendChild(tempLink);
