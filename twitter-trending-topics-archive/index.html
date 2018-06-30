@@ -109,7 +109,7 @@
 
     <div class="row justify-content-center mt-5">
 
-        <div class="card d-none" style="width: 18rem;" id="purchase-form">
+        <div class="card d-none" style="width: 18rem;" id="purchase-card">
           <div class="card-body text-center">
             <h5 class="card-title">Full access to the archive</h5>
             <h2 class="card-title">$ 9.90</h2>
@@ -125,7 +125,7 @@
           </div>
         </div>
 
-        <div class="card d-none" style="width: 18rem;" id="download-form">
+        <div class="card d-none" style="width: 18rem;" id="download-card">
 
             <div class="card-body">
 
@@ -259,9 +259,9 @@ function getURLParameter(sParam) {
 $(function(){
 
     if (getCookie('sid')) {
-        $('#download-form').removeClass('d-none');
+        $('#download-card').removeClass('d-none');
     } else {
-        $('#purchase-form').removeClass('d-none');
+        $('#purchase-card').removeClass('d-none');
     }
 
     var last = new Date();
