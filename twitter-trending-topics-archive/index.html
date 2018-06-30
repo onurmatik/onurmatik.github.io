@@ -288,9 +288,10 @@ $(function(){
         setCookie('country', $(this).find('select option:checked').val());
         var payload = {
             date: $(this).find('input[name=date]').val(),
-            country: getCookie($(this).find('select option:checked').val()),
+            country: $(this).find('select option:checked').val(),
             sid: getCookie('sid')
         };
+        console.log(payload);
         $.get(api_endpoint, $.param(payload), function(data) {
             var tempLink = document.createElement("a");
             tempLink.setAttribute("href", data.url);
