@@ -264,6 +264,11 @@ $(function(){
         $('#purchase-form').removeClass('d-none');
     }
 
+    if (getURLParameter('sid')) {
+        setCookie('sid', getURLParameter('sid'));
+        window.location.href = 'https://onurmatik.github.io/twitter-trending-topics-archive/'
+    }
+
     var last = new Date();
     last.setDate(last.getDate() - 1);
 
@@ -278,11 +283,6 @@ $(function(){
     var $form = $('form');
     var api_endpoint = $form.attr('action');
 
-    if (getURLParameter('sid')) {
-        setCookie('sid', getURLParameter('sid'));
-        window.location.href = 'https://onurmatik.github.io/twitter-trending-topics-archive/'
-    }
-
     $form.submit(function() {
         setCookie('date', $(this).find('input[name=date]').val());
         setCookie('country', $(this).find('select option:checked').val());
@@ -291,7 +291,6 @@ $(function(){
             country: $(this).find('select option:checked').val(),
             sid: getCookie('sid')
         };
-        console.log(payload);
         $.get(api_endpoint, $.param(payload), function(data) {
             var tempLink = document.createElement("a");
             tempLink.setAttribute("href", data.url);
