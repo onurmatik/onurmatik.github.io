@@ -260,14 +260,8 @@ $(function(){
 
     if (getCookie('sid')) {
         $('#download-form').removeClass('d-none');
-        var sid = getCookie('sid');
     } else {
         $('#purchase-form').removeClass('d-none');
-    }
-
-    if (getURLParameter('sid')) {
-        setCookie('sid', getURLParameter('sid'));
-        window.location.href = 'https://onurmatik.github.io/twitter-trending-topics-archive/'
     }
 
     var last = new Date();
@@ -284,13 +278,19 @@ $(function(){
     var $form = $('form');
     var api_endpoint = $form.attr('action');
 
-    $form.submit(function() {
+    if (getURLParameter('sid')) {
+        setCookie('sid', getURLParameter('sid'));
+        window.location.href = 'https://onurmatik.github.io/twitter-trending-topics-archive/'
+    }
+
+    $form.submit(function(e) {
+        e.preventDefault();
         setCookie('date', $(this).find('input[name=date]').val());
         setCookie('country', $(this).find('select option:checked').val());
         var payload = {
-            sid: sid,
             date: $(this).find('input[name=date]').val(),
-            country: $(this).find('select option:checked').val()
+            country: $(this).find('select option:checked').val(),
+            sid: getCookie('sid')
         };
         $.get(api_endpoint, $.param(payload), function(data) {
             var tempLink = document.createElement("a");
