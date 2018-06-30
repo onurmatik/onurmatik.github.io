@@ -210,7 +210,7 @@
                     </div>
 
                     <div class="form-group">
-                        <button type="submit" class="form-control btn btn-info">Download</button>
+                        <button type="button" class="form-control btn btn-info" id="download-button">Download</button>
                     </div>
 
                 </form>
@@ -283,7 +283,7 @@ $(function(){
         window.location.href = 'https://onurmatik.github.io/twitter-trending-topics-archive/'
     }
 
-    $form.submit(function(e) {
+    $('#download-button').click(function() {
         setCookie('date', $(this).find('input[name=date]').val());
         setCookie('country', $(this).find('select option:checked').val());
         var payload = {
@@ -299,7 +299,6 @@ $(function(){
             tempLink.click();
             document.body.removeChild(tempLink);
         }, 'json');
-        e.preventDefault();
     });
 
 });
