@@ -1,24 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head lang="en">
-
-    <!-- Global Site Tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-65977822-4"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments)};
-      gtag('js', new Date());
-
-      gtag('config', 'UA-65977822-4');
-    </script>
-
     <meta charset="UTF-8">
     <title>Twitter Trending Topics Archive</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datepicker/0.6.3/datepicker.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/datepicker/0.6.3/datepicker.min.js"></script>
@@ -27,113 +18,199 @@
 <body>
 
 <div class="text-center">
-    <h1>
+    <h1 class="display-4 mt-5">
         Twitter Trending Topics Archive
-        <br>
-        <small>
-            Download the global and location specific daily Twitter trending topics archive
-        </small>
     </h1>
+    <h2><small>
+        65 countries; 500 locations; 50 topics / hour; since Sep. 2017
+    </small>
+
+    </h2>
 </div>
 
-<br>
 
 <div class="container">
 
-    <div class="row">
+    <div class="row mt-5 justify-content-center">
 
-        <div class="panel panel-info
-            col-md-4 col-md-offset-4
-            col-sm-8 col-sm-offset-2
-            col-xs-10 col-xs-offset-1
-        ">
+        <div class="col-md-9">
 
-            <div class="panel-body">
+            <p>
+                Download the sample
+                <a href="https://s3.amazonaws.com/socialaura-data/twitter-trends/GB-2017-09-03.csv">CSV file</a>
+                or access the archive via
+                <a href="https://market.mashape.com/onurmatik/twitter-trending-topics-archive">the API</a>
+            </p>
 
-                <form action="https://3i91mcgnld.execute-api.us-east-1.amazonaws.com/api/download">
+            <table class="table table-sm mt-4">
+              <thead>
+                <tr>
+                  <th>Topic</th>
+                  <th>Location</th>
+                  <th>Type</th>
+                  <th>Date</th>
+                  <th>Time (UTC)</th>
+                  <th>Volume</th>
+                  <th>Promoted</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>#SummerSolstice</td>
+                  <td>New York</td>
+                  <td>Town</td>
+                  <td>2018-06-21</td>
+                  <td>13:00</td>
+                  <td>35489</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Koko</td>
+                  <td>New York</td>
+                  <td>Town</td>
+                  <td>2018-06-21</td>
+                  <td>13:00</td>
+                  <td>29564</td>
+                  <td>Yes</td>
+                </tr>
+                <tr>
+                  <td>Eriksen</td>
+                  <td>Norfolk</td>
+                  <td>Town</td>
+                  <td>2018-06-21</td>
+                  <td>13:00</td>
+                  <td>27327</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Draft Day</td>
+                  <td>Norfolk</td>
+                  <td>Town</td>
+                  <td>2018-06-21</td>
+                  <td>13:00</td>
+                  <td>10610</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Stonehenge</td>
+                  <td>Oklahoma City</td>
+                  <td>Town</td>
+                  <td>2018-06-21</td>
+                  <td>13:00</td>
+                  <td>11264</td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
 
-                    <div class="row">
-                        <div class="form-group">
-                            <label for="date" class="sr-only">Date</label>
-                            <input name="date" class="form-control" id="date">
-                        </div>
+        </div>
+
+    </div>
+
+    <div class="row justify-content-center mt-5">
+
+        <div class="card d-none" style="width: 18rem;" id="purchase-form">
+          <div class="card-body text-center">
+            <h5 class="card-title">Full access to the archive</h5>
+            <h2 class="card-title">$ 9.90</h2>
+            <h5 class="card-subtitle mb-2 text-muted">one-time-only</h5>
+            <p class="card-text text-center">
+                <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                <input type="hidden" name="cmd" value="_s-xclick">
+                <input type="hidden" name="hosted_button_id" value="F2YPXEFBR5WJJ">
+                <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+                </form>
+            </p>
+          </div>
+        </div>
+
+        <div class="card d-none" style="width: 18rem;" id="download-form">
+
+            <div class="card-body">
+
+                <div class="card-title">
+                    Select date and location
+                </div>
+
+                <form action="https://3i91mcgnld.execute-api.us-east-1.amazonaws.com/api/download" autocomplete="off">
+
+                    <div class="form-group">
+                        <label for="date" class="sr-only">Date</label>
+                        <input name="date" class="form-control" id="date">
                     </div>
 
-                    <div class="row">
-                        <div class="form-group">
-                            <label for="country" class="sr-only">Country</label>
-                            <select name="country" class="form-control text-info" id="country">
-                                <option value="" selected="selected">Worldwide</option>
-                                <option value="AE">United Arab Emirates</option>
-                                <option value="AR">Argentina</option>
-                                <option value="AT">Austria</option>
-                                <option value="AU">Australia</option>
-                                <option value="BE">Belgium</option>
-                                <option value="BH">Bahrain</option>
-                                <option value="BR">Brazil</option>
-                                <option value="BY">Belarus</option>
-                                <option value="CA">Canada</option>
-                                <option value="CH">Switzerland</option>
-                                <option value="CL">Chile</option>
-                                <option value="CO">Colombia</option>
-                                <option value="DE">Germany</option>
-                                <option value="DK">Denmark</option>
-                                <option value="DO">Dominican Republic</option>
-                                <option value="DZ">Algeria</option>
-                                <option value="EC">Ecuador</option>
-                                <option value="EG">Egypt</option>
-                                <option value="ES">Spain</option>
-                                <option value="FR">France</option>
-                                <option value="GB">United Kingdom</option>
-                                <option value="GH">Ghana</option>
-                                <option value="GR">Greece</option>
-                                <option value="GT">Guatemala</option>
-                                <option value="ID">Indonesia</option>
-                                <option value="IE">Ireland</option>
-                                <option value="IL">Israel</option>
-                                <option value="IN">India</option>
-                                <option value="IT">Italy</option>
-                                <option value="JO">Jordan</option>
-                                <option value="JP">Japan</option>
-                                <option value="KE">Kenya</option>
-                                <option value="KR">Korea</option>
-                                <option value="KW">Kuwait</option>
-                                <option value="LB">Lebanon</option>
-                                <option value="LV">Latvia</option>
-                                <option value="MX">Mexico</option>
-                                <option value="MY">Malaysia</option>
-                                <option value="NG">Nigeria</option>
-                                <option value="NL">Netherlands</option>
-                                <option value="NO">Norway</option>
-                                <option value="NZ">New Zealand</option>
-                                <option value="OM">Oman</option>
-                                <option value="PA">Panama</option>
-                                <option value="PE">Peru</option>
-                                <option value="PH">Philippines</option>
-                                <option value="PK">Pakistan</option>
-                                <option value="PL">Poland</option>
-                                <option value="PR">Puerto Rico</option>
-                                <option value="PT">Portugal</option>
-                                <option value="QA">Qatar</option>
-                                <option value="RU">Russia</option>
-                                <option value="SA">Saudi Arabia</option>
-                                <option value="SE">Sweden</option>
-                                <option value="SG">Singapore</option>
-                                <option value="TH">Thailand</option>
-                                <option value="TR">Turkey</option>
-                                <option value="UA">Ukraine</option>
-                                <option value="US">United States</option>
-                                <option value="VE">Venezuela</option>
-                                <option value="VN">Vietnam</option>
-                                <option value="ZA">South Africa</option>
-                            </select>
-                        </div>
+                    <div class="form-group">
+                        <label for="country" class="sr-only">Country</label>
+                        <select name="country" class="form-control" id="country">
+                            <option value="" selected="selected">Worldwide</option>
+                            <option value="AE">United Arab Emirates</option>
+                            <option value="AR">Argentina</option>
+                            <option value="AT">Austria</option>
+                            <option value="AU">Australia</option>
+                            <option value="BE">Belgium</option>
+                            <option value="BH">Bahrain</option>
+                            <option value="BR">Brazil</option>
+                            <option value="BY">Belarus</option>
+                            <option value="CA">Canada</option>
+                            <option value="CH">Switzerland</option>
+                            <option value="CL">Chile</option>
+                            <option value="CO">Colombia</option>
+                            <option value="DE">Germany</option>
+                            <option value="DK">Denmark</option>
+                            <option value="DO">Dominican Republic</option>
+                            <option value="DZ">Algeria</option>
+                            <option value="EC">Ecuador</option>
+                            <option value="EG">Egypt</option>
+                            <option value="ES">Spain</option>
+                            <option value="FR">France</option>
+                            <option value="GB">United Kingdom</option>
+                            <option value="GH">Ghana</option>
+                            <option value="GR">Greece</option>
+                            <option value="GT">Guatemala</option>
+                            <option value="ID">Indonesia</option>
+                            <option value="IE">Ireland</option>
+                            <option value="IL">Israel</option>
+                            <option value="IN">India</option>
+                            <option value="IT">Italy</option>
+                            <option value="JO">Jordan</option>
+                            <option value="JP">Japan</option>
+                            <option value="KE">Kenya</option>
+                            <option value="KR">Korea</option>
+                            <option value="KW">Kuwait</option>
+                            <option value="LB">Lebanon</option>
+                            <option value="LV">Latvia</option>
+                            <option value="MX">Mexico</option>
+                            <option value="MY">Malaysia</option>
+                            <option value="NG">Nigeria</option>
+                            <option value="NL">Netherlands</option>
+                            <option value="NO">Norway</option>
+                            <option value="NZ">New Zealand</option>
+                            <option value="OM">Oman</option>
+                            <option value="PA">Panama</option>
+                            <option value="PE">Peru</option>
+                            <option value="PH">Philippines</option>
+                            <option value="PK">Pakistan</option>
+                            <option value="PL">Poland</option>
+                            <option value="PR">Puerto Rico</option>
+                            <option value="PT">Portugal</option>
+                            <option value="QA">Qatar</option>
+                            <option value="RU">Russia</option>
+                            <option value="SA">Saudi Arabia</option>
+                            <option value="SE">Sweden</option>
+                            <option value="SG">Singapore</option>
+                            <option value="TH">Thailand</option>
+                            <option value="TR">Turkey</option>
+                            <option value="UA">Ukraine</option>
+                            <option value="US">United States</option>
+                            <option value="VE">Venezuela</option>
+                            <option value="VN">Vietnam</option>
+                            <option value="ZA">South Africa</option>
+                        </select>
                     </div>
 
-                    <div class="row">
-                        <div class="form-group">
-                            <button type="submit" class="form-control btn btn-info">Download</button>
-                        </div>
+                    <div class="form-group">
+                        <button type="submit" class="form-control btn btn-info">Download</button>
                     </div>
 
                 </form>
@@ -149,16 +226,6 @@
 <br>
 
 <div class="text-center">
-
-    <p class="text-muted">
-        Top 50 topics / hour for 65 countries &amp; ~ 500 locations; aggregated daily in CSV format; since Sep. 3<sup>rd</sup>, 2017
-    </p>
-
-    <p>
-        <a href="https://market.mashape.com/onurmatik/twitter-trending-topics-archive">
-            You can also access the archive via the API
-        </a>
-    </p>
 
 </div>
 
@@ -190,8 +257,15 @@ function getURLParameter(sParam) {
 }
 
 $(function(){
+
+    if (getCookie('sid')) {
+        $('#download-form').removeClass('d-none');
+    } else {
+        $('#purchase-form').removeClass('d-none');
+    }
+
     var last = new Date();
-    last.setDate(last.getDate() - 1)
+    last.setDate(last.getDate() - 1);
 
     $('#date').datepicker({
         date: last,
@@ -219,14 +293,20 @@ $(function(){
             tempLink.click();
             document.body.removeChild(tempLink);
         }, 'json');
+    } else if (getURLParameter('sid')) {
+        setCookie('sid', getURLParameter('sid'));
+        window.location.href = 'https://onurmatik.github.io/twitter-trending-topics-archive/'
     }
 
     $form.submit(function() {
         setCookie('date', $(this).find('input[name=date]').val());
         setCookie('country', $(this).find('select option:checked').val());
         $.get(api_endpoint, function(data) {
-            setCookie('oauth_token_secret', data.oauth_token_secret);
-            window.location.href = data.auth_url;
+            var tempLink = document.createElement("a");
+            tempLink.setAttribute("href", data.url);
+            document.body.appendChild(tempLink);
+            tempLink.click();
+            document.body.removeChild(tempLink);
         }, 'json');
         return false;
     });
