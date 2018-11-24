@@ -125,7 +125,7 @@
           </div>
         </div>
 
-        <div class="card d-none" style="width: 18rem;" id="download-card">
+        <div class="card d-none-x" style="width: 18rem;" id="download-card">
 
             <div class="card-body">
 
@@ -258,11 +258,13 @@ function getURLParameter(sParam) {
 
 $(function(){
 
+    /*
     if (getCookie('sid')) {
         $('#download-card').removeClass('d-none');
     } else {
         $('#purchase-card').removeClass('d-none');
     }
+    */
 
     var last = new Date();
     last.setDate(last.getDate() - 1);
